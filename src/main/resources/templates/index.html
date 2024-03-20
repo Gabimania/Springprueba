@@ -27,7 +27,21 @@
     <input type="text" name="" id="nombre" placeholder="nombre">
     <input type="text" name="" id="apellidos" placeholder="apellidos">
     <input type="number" name="" id="edad" placeholder="edad">
-    <button id="bntEnviarAlumno">Enviar Alumno</button>
+    <button id="btnEnviarAlumno">Enviar Alumno</button>
+    <hr>
+    <hr>
+    <form action="formtask" method="post">
+        <input type="text" name="titulo" id="" placeholder="titulo">
+        <input type="text" name="descripcion" id="" placeholder="descripcion">
+        <input type="date" name="fecha" id="" placeholder="fecha">
+        <input type="submit" value="Crear Tarea">
+    </form>
+    <div th:if="${tarea}">
+        <p>Tarea creada exitosamente:</p>
+        <p>Titulo: <span th:text="${tarea.titulo}"></span></p>
+        <p>Descripción: <span th:text="${tarea.descripcion}"></span></p>
+        <p>Fecha: <span th:text="${tarea.fecha}"></span></p>
+    </div>
 </div>
 
 </body>

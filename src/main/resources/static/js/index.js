@@ -16,28 +16,29 @@ window.onload = () => {
             });
     };
 
-    document.getElementById("bntEnviarAlumno").onclick =()=>{
-        let alumno = {
-            id: document.getElementById("idalumno").value,
+    document.getElementById("btnEnviarAlumno").onclick=()=>{
+        let alumno={
+            id:document.getElementById("idalumno").value,
             nombre:document.getElementById("nombre").value,
-            apellidos: document.getElementById("apellidos").value,
+            apellidos:document.getElementById("apellidos").value,
             edad:document.getElementById("edad").value
         }
-
-        let url = location.origin+ "api/alumno"
-        fetch(url, {
-            method: 'POST',
+        let url = location.origin + "/api/alumno";
+        fetch(url,{
+            method:'POST',
             headers:{
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify(alumno)
+            body: JSON.stringify(alumno)
         })
-            .then(datos => datos.json())
+            .then(datos=>datos.json())
             .then(datos=>{
                 console.log(datos);
             })
             .catch(err=>{
                 console.log(err);
             })
+
+
     }
 };

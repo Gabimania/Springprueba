@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Controller
 public class ViewController {
     @GetMapping("/index")
@@ -26,6 +29,15 @@ public class ViewController {
         return "index";
     }
 
+    }
+
+    @PostMapping("/formtask")
+    public String crearTarea(@RequestParam String titulo, @RequestParam String descripcion, @RequestParam String fecha, Model model) {
+        Tarea tarea = new Tarea(titulo, descripcion, LocalDate.parse(fecha));
+        System.out.println(tarea.toString());
+        model.addAttribute("tarea", tarea);
+        model.addAttribute("mensaje", "Tarea creada exitosamente");
+        return "index";
     }
 
 }
